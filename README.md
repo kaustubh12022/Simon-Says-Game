@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Simon Says Game
 
 A modern, responsive web application of the classic memory game "Simon Says".
@@ -30,3 +31,6 @@ Built with HTML, CSS, and JavaScript.
 ## Setup
 
 No installation required. Simply clone the repository and open `index.html` to play.
+=======
+# Simon-Says-Game
+>>>>>>> 7769f62cea6f294f1e32ad8335ac452c52c11343
