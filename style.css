@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    user-select: none;
+}
+
+body {
+    background-color: #2c2c2c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Base Board shadow/container */
+.simon-board {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: #333;
+    padding: 15px;
+    /* Black gap between buttons */
+    box-shadow:
+        10px 10px 30px rgba(0, 0, 0, 0.5),
+        -5px -5px 15px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+/* Common Button Styles */
+.btn {
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    opacity: 0.8;
+    transition: all 0.1s;
+    cursor: pointer;
+    border: none;
+}
+
+/* Quadrant Positioning & Radius */
+.top-left {
+    top: 10px;
+    left: 10px;
+    border-top-left-radius: 100%;
+    background-color: #00a74a;
+    /* Green */
+    border-top: 5px solid #00c75a;
+    border-left: 5px solid #00c75a;
+}
+
+.top-right {
+    top: 10px;
+    right: 10px;
+    border-top-right-radius: 100%;
+    background-color: #9f0f17;
+    /* Red */
+    border-top: 5px solid #bf1f27;
+    border-right: 5px solid #bf1f27;
+}
+
+.bottom-left {
+    bottom: 10px;
+    left: 10px;
+    border-bottom-left-radius: 100%;
+    background-color: #dca902;
+    /* Yellow */
+    border-bottom: 5px solid #fcc922;
+    border-left: 5px solid #fcc922;
+}
+
+.bottom-right {
+    bottom: 10px;
+    right: 10px;
+    border-bottom-right-radius: 100%;
+    background-color: #094a8f;
+    /* Blue/Purple replacement for classic look */
+    border-bottom: 5px solid #296abf;
+    border-right: 5px solid #296abf;
+}
+
+/* Center Hub */
+.center-hub {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 140px;
+    background-color: #d8d8d8;
+    /* Light gray plastic */
+    border-radius: 50%;
+    border: 10px solid #333;
+    /* Dark ring */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.brand {
+    font-weight: 900;
+    font-size: 1.4rem;
+    color: #333;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-family: 'Arial Black', sans-serif;
+}
+
+.level-counter {
+    background-color: #333;
+    color: #e0e0e0;
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: inset 1px 1px 3px 0px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    min-width: 60px;
+}
+
+.label {
+    font-size: 0.5rem;
+    color: #888;
+    margin-bottom: 2px;
+}
+
+#level-title {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #ff3333;
+    /* Digital red LED look */
+    font-family: 'monospace';
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+.instruction {
+    margin-top: 30px;
+    color: #888;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Active / Flash States */
+.flash,
+.userflash {
+    opacity: 1 !important;
+    transform: scale(1.02);
+    filter: brightness(1.5);
+    z-index: 5;
+    box-shadow: 0 0 20px currentColor;
+}
+
+/* Specific button colors for flash shadows */
+.top-left.flash,
+.top-left.userflash {
+    box-shadow: 0 0 30px #00ff73;
+}
+
+.top-right.flash,
+.top-right.userflash {
+    box-shadow: 0 0 30px #ff4d4d;
+}
+
+.bottom-left.flash,
+.bottom-left.userflash {
+    box-shadow: 0 0 30px #ffe600;
+}
+
+.bottom-right.flash,
+.bottom-right.userflash {
+    box-shadow: 0 0 30px #4d94ff;
+}
+
+/* Click effect */
+.btn:active {
+    filter: brightness(1.2);
+}
+
+.game-over-flash {
+    animation: shake 0.5s;
+    background-color: #500 !important;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

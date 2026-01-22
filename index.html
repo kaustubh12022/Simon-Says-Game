@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Says - Neon Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <div class="simon-board">
+            <div class="btn green top-left" type="button" id="green"></div>
+            <div class="btn red top-right" type="button" id="red"></div>
+            <div class="btn yellow bottom-left" type="button" id="yellow"></div>
+            <div class="btn blue bottom-right" type="button" id="blue"></div>
+
+            <div class="center-hub">
+                <div class="brand">SIMON</div>
+                <div class="level-counter">
+                    <span class="label">LEVEL</span>
+                    <h2 id="level-title">1</h2>
+                </div>
+            </div>
+        </div>
+        <p class="instruction">Press any key to start</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
